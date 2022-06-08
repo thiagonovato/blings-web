@@ -3,8 +3,8 @@ import { ContainerTitle, Title } from './styles';
 const TitleComponent = () => {
   return (
     <ContainerTitle>
-      <Title color='yellow'>Páginas</Title>
-      <Title color='blue'>Amarelas</Title>
+      <Title color='yellow'>Yellow</Title>
+      <Title color='blue'>Pages</Title>
     </ContainerTitle>
   );
 };
