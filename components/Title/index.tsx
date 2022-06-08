@@ -1,6 +1,6 @@
 import { ContainerTitle, Title } from './styles';
 
-export const TitleComponent = () => {
+const TitleComponent = () => {
   return (
     <ContainerTitle>
       <Title color='yellow'>Páginas</Title>
@@ -8,3 +8,5 @@ export const TitleComponent = () => {
     </ContainerTitle>
   );
 };
+
+export default TitleComponent;

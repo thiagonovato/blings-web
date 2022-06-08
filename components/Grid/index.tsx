@@ -1,7 +1,7 @@
-import { Card } from '../Card';
-import { Container } from './styles';
+import Card from '../Card';
+import { Container } from '../Card/styles';
 
-export const GridComponnent = () => {
+const GridComponnent = () => {
   return (
     <Container>
       <Card />
@@ -15,3 +15,5 @@ export const GridComponnent = () => {
     </Container>
   );
 };
+
+export default GridComponnent;
