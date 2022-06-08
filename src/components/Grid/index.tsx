@@ -6,10 +6,18 @@ const GridComponnent = () => {
 
   return (
     <Container>
-      {!loading && <TextResult>{contacts.length} resultados</TextResult>}
+      {
+        <TextResult>
+          {!loading &&
+            (contacts.length === 0
+              ? 'No results, please review your search or try a different one'
+              : `${contacts.length} ${
+                  contacts.length === 1 ? 'result' : 'results'
+                } found`)}
+        </TextResult>
+      }
       <ContainerGrid>
         {contacts &&
-          contacts.length &&
           contacts.map((contact) => (
             <Card key={contact.name} contact={contact} />
           ))}
