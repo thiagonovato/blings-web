@@ -11,7 +11,7 @@ interface Contact {
 
 interface IState {
   contacts: Contact[];
-  searchContacts: () => void;
+  searchContacts: (data: string) => void;
   loading: boolean;
 }
 
@@ -32,11 +32,17 @@ export const ContactProvider = ({ children }: IProps) => {
     getContacts();
   }, []);
 
-  async function searchContacts(): Promise<void> {
+  async function searchContacts(data: string): Promise<void> {
+    const arrData = data.split(' ').join('+');
+
     try {
       setLoading(true);
       setContacts([]);
-      const response = await api.get('/contacts');
+      const response = await api.get('/contacts', {
+        params: {
+          query: arrData,
+        },
+      });
 
       setContacts(response.data);
     } catch (error) {

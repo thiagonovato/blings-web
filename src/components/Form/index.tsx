@@ -8,7 +8,7 @@ const Form = () => {
   const [text, setText] = useState('');
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
-    searchContacts();
+    searchContacts(text);
   }
 
   return (
