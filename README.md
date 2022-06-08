@@ -1,34 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
-First, run the development server:
+First, run to install dependencies
 
 ```bash
-npm run dev
+npm install
 # or
-yarn dev
+yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Firstly start the API Server and after the web application. Is the same command to both.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run start
+# or
+yarn start
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+The web application will run in `http://localhost:3000` and the API Server will run in `http://localhost:5000`. Open the web application in your web browser to use.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## How works it?
 
-## Learn More
+API Server has only one endpoint that receives parameters via query params
 
-To learn more about Next.js, take a look at the following resources:
+- /contacts - Endpoint that return the list of contacts filtered
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The identification of each parameter is:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- The text will be considered a contact name and will be used to find by name
+- Number up to 3 (three) digits will be considered age and will be used to find by age
+- Number more than 4 (four) digits will be considered a contact phone number and will be used to locate by phone
 
-## Deploy on Vercel
+You can combine all options and the filter will be applied based on your specification. For example, if you search for "Lou 60", all contacts with the name "Lou" and age "60" will be searched. Both criteria will be considered in the same search.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Using online
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Both applications are available online on the follow links to use:
+
+- Web Application: [https://blings-web.vercel.app/](https://blings-web.vercel.app/)
+- API Server: [https://blings-api.herokuapp.com/](https://blings-api.herokuapp.com/)
+
+## Repositories on GitHub
+
+Both applications are available on the follow links to use:
+
+- Web Application: [https://github.com/thiagonovato/blings-web](https://github.com/thiagonovato/blings-web)
+- API Server: [https://github.com/thiagonovato/blings-api](https://github.com/thiagonovato/blings-api)
