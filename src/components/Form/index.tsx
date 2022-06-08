@@ -19,7 +19,7 @@ const Form = () => {
         onChange={(e) => setText(e.target.value)}
         disabled={loading}
       />
-      <button type='submit'>{loading ? 'Aguarde...' : 'Pesquisar'}</button>
+      <button type='submit'>{loading ? 'Wait...' : 'Search'}</button>
     </Container>
   );
 };
