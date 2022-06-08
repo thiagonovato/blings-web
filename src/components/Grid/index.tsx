@@ -1,6 +1,5 @@
 import Card from '../Card';
-import { Container } from '../Card/styles';
-
+import { Container } from './styles';
 const GridComponnent = () => {
   return (
     <Container>
