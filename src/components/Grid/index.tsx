@@ -1,16 +1,19 @@
+import { useContact } from '../../contexts/ContactContext';
 import Card from '../Card';
-import { Container } from './styles';
+import { Container, ContainerGrid, TextResult } from './styles';
 const GridComponnent = () => {
+  const { loading, contacts } = useContact();
+
   return (
     <Container>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {!loading && <TextResult>{contacts.length} resultados</TextResult>}
+      <ContainerGrid>
+        {contacts &&
+          contacts.length &&
+          contacts.map((contact) => (
+            <Card key={contact.name} contact={contact} />
+          ))}
+      </ContainerGrid>
     </Container>
   );
 };

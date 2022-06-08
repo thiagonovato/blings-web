@@ -1,14 +1,25 @@
-import { useState } from 'react';
-import { InputComponent } from '../Input';
-import { Container, Title } from './styles';
+import React, { useState } from 'react';
+import { useContact } from '../../contexts/ContactContext';
+import { Container } from './styles';
 
 const Form = () => {
-  const [value, setValue] = useState('');
+  const { searchContacts, loading } = useContact();
+
+  const [text, setText] = useState('');
+  async function handleSubmit(event: React.FormEvent) {
+    event.preventDefault();
+    searchContacts();
+  }
 
   return (
-    <Container>
-      <Title>Pesquisa</Title>
-      <InputComponent value={value} />
+    <Container onSubmit={handleSubmit}>
+      <input
+        placeholder='Ex.: John 33'
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        disabled={loading}
+      />
+      <button type='submit'>{loading ? 'Aguarde...' : 'Pesquisar'}</button>
     </Container>
   );
 };

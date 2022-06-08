@@ -17,7 +17,7 @@ export const Avatar = styled.img`
   border-radius: 50%;
   float: left;
   margin: 10px 10px;
-  `
+`
 
 export const SubContainer = styled.div`
   float: left;
@@ -28,4 +28,6 @@ export const SubContainer = styled.div`
 
 export const Title = styled.text``
 
-export const Description = styled.text``
+export const Description = styled.text`
+  font-size: 13px;
+`
