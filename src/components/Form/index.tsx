@@ -4,22 +4,28 @@ import { Container } from './styles';
 
 const Form = () => {
   const { searchContacts, loading } = useContact();
+  const [arrAllSetIntervals, setArrAllSetIntervals] = useState<number>(0);
 
-  const [text, setText] = useState('');
-  async function handleSubmit(event: React.FormEvent) {
+  async function handleSubmit(event: any) {
     event.preventDefault();
-    searchContacts(text);
+
+    clearInterval(arrAllSetIntervals);
+
+    const timeoutId = setTimeout(() => {
+      searchContacts(event.target.value);
+      setArrAllSetIntervals(0);
+    }, 2000);
+
+    setArrAllSetIntervals(Number(timeoutId));
   }
 
   return (
     <Container onSubmit={handleSubmit}>
       <input
         placeholder='Ex.: John 33'
-        value={text}
-        onChange={(e) => setText(e.target.value)}
+        onChange={(e) => handleSubmit(e)}
         disabled={loading}
       />
-      <button type='submit'>{loading ? 'Wait...' : 'Search'}</button>
     </Container>
   );
 };
