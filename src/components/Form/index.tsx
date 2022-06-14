@@ -9,7 +9,7 @@ const Form = () => {
   async function handleSubmit(event: any) {
     event.preventDefault();
 
-    clearInterval(arrAllSetIntervals);
+    clearTimeout(arrAllSetIntervals);
 
     const timeoutId = setTimeout(() => {
       searchContacts(event.target.value);
